@@ -1,5 +1,5 @@
 home = "https://gogoanime3.net"
-host = "https://animedex.pages.dev"
+host = "https://animxer.xyz"
 
 import requests
 from bs4 import BeautifulSoup as bs
