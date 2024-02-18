@@ -146,6 +146,46 @@ async function loadAnimeFromAnilist(data) {
     RefreshLazyLoader();
     console.log("Anime Recommendations loaded");
 }
+// Function to get episode Slider
+async function getEpSlider(total) {
+    let ephtml = "";
+
+    for (let i = 0; i < total.length; i++) {
+        let episodeId = total[i][1]
+        let epNum = total[i][0]
+        let x = episodeId.split("-episode-");
+        ephtml += `<div class=ep-slide><a href="./episode.html?anime=${x[0]}&episode=${x[1]}"><img onerror="retryImageLoad(this)" class="lzy_img" src="./static/loading1.gif" data-src=https://thumb.anime-dex.workers.dev/thumb/${episodeId}><div class=ep-title><span>Episode ${epNum}</span></div></a></div>`;
+    }
+    document.getElementById("ep-slider").innerHTML = ephtml;
+    document.getElementById("slider-main").style.display = "block";
+    RefreshLazyLoader();
+    console.log("Episode Slider loaded");
+}
+
+// Retry image load
+function retryImageLoad(img) {
+    const ImageUrl = img.src
+    img.src = "./static/loading1.gif";
+
+    // load after 3 second
+
+    setTimeout(() => {
+
+        if (ImageUrl.includes("?t=")) {
+            const t = Number(ImageUrl.split("?t=")[1]) + 1;
+
+            // Retry 10 times
+            if (t < 5) {
+                img.src = ImageUrl.split("?t=")[0] + "?t=" + String(t);
+            }
+        }
+        else {
+            img.src = ImageUrl + "?t=1";
+        }
+
+    }, 3000);
+
+}
 
 // Function to get episode list
 async function getEpList(anime_id, total) {
