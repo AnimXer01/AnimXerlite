@@ -6,6 +6,10 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     
         <url>
+            <loc>https://animxer.xyz/anime.html?anime=sengoku-youko</loc>
+        </url>
+        
+        <url>
             <loc>https://animxer.xyz/anime.html?anime=kingdom-5th-season</loc>
         </url>
         
@@ -27,10 +31,6 @@
         
         <url>
             <loc>https://animxer.xyz/anime.html?anime=sokushi-cheat-ga-saikyou-sugite-isekai-no-yatsura-ga-marude-aite-ni-naranai-n-desu-ga</loc>
-        </url>
-        
-        <url>
-            <loc>https://animxer.xyz/anime.html?anime=sengoku-youko</loc>
         </url>
         
         <url>
