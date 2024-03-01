@@ -47,6 +47,7 @@
                 opacity: 0;
             }
         }
+
         .plyr__time-skip {
             position: absolute;
             top: 0;
@@ -81,8 +82,8 @@
     <script src="https://cdn.jsdelivr.net/npm/plyr@3/dist/plyr.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/hls.js"></script>
     <script src="https://unpkg.com/plyr@3"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BHQX4066ZV"></script>
-    <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-BHQX4066ZV');</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X0RBPNFNHN"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-X0RBPNFNHN');</script>
 </head>
 
 <body>
@@ -101,6 +102,10 @@
             video.setAttribute("data-poster", `https://thumb.anime-dex.workers.dev/get/${id}`);
 
             const defaultOptions = {
+                keyboard: {
+                    focused: true,
+                    global: true
+                },
 
             };
 
@@ -139,12 +144,12 @@
                 player.on('ready', () => {
                     const root = video.closest('.plyr--video');
 
-                    player.eventListeners.forEach(function(eventListener) {
-                        if(eventListener.type === 'dblclick') {
+                    player.eventListeners.forEach(function (eventListener) {
+                        if (eventListener.type === 'dblclick') {
                             eventListener.element.removeEventListener(eventListener.type, eventListener.callback, eventListener.options);
                         }
                     });
-                    root.addEventListener('dblclick', function(event) {
+                    root.addEventListener('dblclick', function (event) {
                         event.preventDefault();
                     });
                     const poster = root.querySelector('.plyr__poster');
@@ -218,4 +223,5 @@
         });
     </script>
 </body>
+
 </html>
